@@ -1,44 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-import ExchangeRatePage from "./ExchangeRatePage"
+import React, { Suspense, lazy } from "react";
+import "./App.css";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import ProductPage from "./pages/main/ProductPage"
+import NavBar from "./components/NavBar"
+import { defaultDataIdFromObject } from "@apollo/client";
 
 function App() {
+  const ProductPage = lazy(() => import("./pages/main/ProductPage"));
+  const baseUrl = process.env.PUBLIC_URL;
+
   return (
-    <div className="App">
-      <ExchangeRatePage/>
-    </div>
+    <BrowserRouter name ={baseUrl}>
+    <Suspense fallback={<div>Loading...</div>}>
+    <Switch>
+      <Route path="/" exact> <ProductPage/>
+      </Route>
+  </Switch>
+  </Suspense>
+  </BrowserRouter>
   );
 }
 
 export default App;
-
-
-// import React from "react";
-// import "./App.css";
-// import { client } from "./ApolloClient/client";
-// import { ApolloProvider,gql} from '@apollo/client';
-// import ExchangeRatesPage from './ExchangeRatePage';
-
-
-// function App() {
-//   client
-//   .query({
-//     query: gql`
-//       query GetRates {
-//         rates(currency: "USD") {
-//           currency
-//         }
-//       }
-//     `
-//   })
-//   .then(result => console.log(result));
-//   return (
-//     <ApolloProvider client={client}>
-//       <div className="App">
-//         <ExchangeRatesPage />
-//       </div>
-//     </ApolloProvider>
-//   );
-// }
-
-// export default App;
