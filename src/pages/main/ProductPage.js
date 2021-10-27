@@ -20,7 +20,7 @@ function ProductPage() {
     refetch({ currency: e }).then((result) => {
       const { data } = result;
       let tempCarts = cartItems;
-      tempCarts.map((item) => {
+      tempCarts.map(item => {
         let similarItems = data.products.find(
           (product) => product.id === item.id
         );
@@ -36,7 +36,7 @@ function ProductPage() {
      sumTotal += parseInt(tempCarts[itemToMinusIndex].totalAmount)
     });
       setSubTotal(sumTotal)
-
+return
     });
   };
 
