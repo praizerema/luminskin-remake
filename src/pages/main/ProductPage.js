@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_PRODUCTS, GET_CURRENCY } from "../../graphql/queries";
 import NavBar from "../../components/NavBar";
-import Footer from "../../components/Footer"
+import Footer from "../../components/Footer";
+import {ErrorCustom} from "../../components/ErrorCustom"
+import {LoadingCustom} from "../../components/LoadingCustom"
 function ProductPage() {
   const [cartItems, setCartItems] = useState([]);
   const [showCart, setShowCart] = useState(false);
@@ -156,8 +158,8 @@ function ProductPage() {
     setSubTotal(parseInt(subTotal + tempCartItems[itemToAddIndex].price));
   };
 
-  if (loading) return "Loading...";
-  if (error) return "Something Bad Happened";
+  if (loading) return <LoadingCustom/>
+  if (error) return <ErrorCustom/>
   return (
     <div className="relative text-center text-gray-800">
       <NavBar
@@ -200,7 +202,7 @@ function ProductPage() {
                 {` ${price}.00`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
               </p>
               <button
-                className="bg-lumin text-sm text-gray-50 px-10 py-3 hover:bg-lumin-dark xs:text-xs sm:text-xs md:text-sm lg:text-base 2xl:text-base"
+                className="bg-lumin text-sm text-gray-50 px-10 py-3 hover:bg-lumin-dark transition duration-300 delay-200 ease-in xs:text-xs sm:text-xs md:text-sm lg:text-base 2xl:text-base"
                 onClick={() =>
                   handleClick({ title, image_url, id, price, product_options })
                 }
@@ -225,19 +227,8 @@ function ProductPage() {
           <div className="flex justify-between content-center items-center mb-8">
             <div
               onClick={() => setShowCart(!showCart)}
-              className="cursor-pointer"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="24px"
-                viewBox="0 0 24 24"
-                width="24px"
-                fill="#000000"
-              >
-                ``
-                <path d="M0 0h24v24H0z" fill="none" />
-                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
-              </svg>
+              className="cursor-pointer float-right h-7 w-7 rounded-full bg-gray-100 border border-block border-gray-300"
+            ><i class="fas fa-angle-right"></i>
             </div>
             <div>
               <Currencies
@@ -299,7 +290,7 @@ function ProductPage() {
               {`${subTotal}.00`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </div>
           </div>
-          <button className="bg-lumin text-sm text-gray-50 px-10 py-3 w-full font-bold hover:bg-lumin-dark xs:text-xs sm:text-xs md:text-sm lg:text-base 2xl:text-base">
+          <button className="bg-lumin text-sm text-gray-50 px-10 py-3 w-full font-bold hover:bg-lumin-dark transition duration-300 delay-200 ease-in xs:text-xs sm:text-xs md:text-sm lg:text-base 2xl:text-base">
             PROCEED TO CHECKOUT
           </button>
         </div>
