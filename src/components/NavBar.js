@@ -16,7 +16,7 @@ function NavBar({ onClick, itemNo }) {
           <Link to="/">Learn</Link>
         </div>
         <div
-          className="m:block lg:hidden 2xl:hidden block"
+          className="m:block lg:hidden 2xl:hidden block cursor-pointer"
           onClick={() => setShowMobileNav(true)}
         >
           <svg
@@ -41,8 +41,8 @@ function NavBar({ onClick, itemNo }) {
       <div
         className={
           showMobileNav
-            ? "bg-lumin-transparent z-10 absolute h-full-vh w-full  top-0 left-0 backdrop-filter blur-sm transition duration-1000 delay-300 ease-in "
-            : "hidden"
+            ? "bg-lumin-transparent z-10 absolute h-full-vh w-full top-0 left-0 backdrop-filter blur-sm transition duration-1000 delay-300 ease-in "
+            : "w-0  hidden"
         }
       >
         <div className="bg-cart h-full fixed scroll overflow-y-scroll left-0 2xl:w-5/12 lg:w-5/12 md:w-1/2 sm:w-2/3 xs:w-full p-8 transition-opacity ease-in">
@@ -68,8 +68,8 @@ function NavBar({ onClick, itemNo }) {
               alt="Lumin Logo"
               className="h-15"
             />
-            <Link to="/">Shop</Link>
-            <Link to="/">Learn</Link>
+            <Link to="/" className="hover:underline transition duration-500 delay-200 ease-in-out">Shop</Link>
+            <Link to="/" className="hover:underline transition duration-500 delay-200 ease-in-out">Learn</Link>
           </div>
         </div>
       </div>
