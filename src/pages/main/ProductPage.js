@@ -18,7 +18,7 @@ function ProductPage() {
 
     let sumTotal = 0
     refetch({ currency: e }).then((result) => {
-      const { loading, error, data } = result;
+      const { data } = result;
       let tempCarts = cartItems;
       tempCarts.map((item) => {
         let similarItems = data.products.find(

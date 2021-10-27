@@ -1,4 +1,4 @@
-import { gql, useQuery } from "@apollo/client";
+import { gql} from "@apollo/client";
 
 export const GET_PRODUCTS = gql`
   query GetProducts($currency: Currency!) {
