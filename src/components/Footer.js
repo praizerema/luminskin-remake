@@ -38,7 +38,7 @@ function Footer() {
             Or email us at{" "}
             <a href="mailto:support@luminskin.com">support@luminskin.com</a>{" "}
           </p>
-          <div className="flex justify-between flex-wrap">
+          <div className="flex justify-between flex-wrap w-max">
             <p>
               © 2021,<a href="/">Lumin</a>
             </p>
