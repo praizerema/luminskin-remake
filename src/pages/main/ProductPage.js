@@ -287,7 +287,7 @@ function ProductPage() {
             </div>
             <div className="text-lg font-bold text-gray-800">
               <span>{selectedCurrency}</span>{" "}
-              {`${subTotal}.00`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+              {`${subTotal?subTotal: "0"}.00`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </div>
           </div>
           <button className="bg-lumin text-sm text-gray-50 px-10 py-3 w-full font-bold hover:bg-lumin-dark transition duration-300 delay-200 ease-in xs:text-xs sm:text-xs md:text-sm lg:text-base 2xl:text-base">
