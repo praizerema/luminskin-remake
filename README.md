@@ -20,7 +20,7 @@ To get a local copy up and running follow these simple example steps.
 - Clone the project using:
 
 ```
-$ git clone https://github.com/praizerema/luminskin-take-home.git
+$ git clone https://github.com/praizerema/luminskin-remake.git
 ```
 
 ### Prerequisites
@@ -34,7 +34,7 @@ $ git clone https://github.com/praizerema/luminskin-take-home.git
 👤 **Praisegod Ayodele**
 
 - GitHub: [@praizerema](https://github.com/praizerema)
-- Twitter: [@ayodelepraisego](https://twitter.com/ayodelepraisego)
+- Twitter: [@ayodelepraisego](https://twitter.com/eremapraiz)
 - LinkedIn: [Ayodele PraiseGod](https://www.linkedin.com/in/praizerema)
 
 ## Available Scripts
